@@ -23,7 +23,7 @@ function rsync_commonboard_godaddy()
     REMOTE_DIR=${1}
     LOCAL_DIR=${1}
     echo -n "${LOCAL_DIR}..."
-    mkdir -p ${LOCAL_DIR}
+    mkdir -p ${LOCAL_ROOT}/${LOCAL_DIR}
     sshpass -p ${PASSWORD} rsync -e ssh -az --delete-after b8800814@www.rsr-solutions.net:html/architech/${REMOTE_DIR}/ ${LOCAL_ROOT}/${LOCAL_DIR}
     [ $? -eq 0 ] || { exit_error; }
     echo "OK"
@@ -34,17 +34,19 @@ function rsync_pengwy_godaddy()
     echo -n "pengwyn..."
     REMOTE_DIR="pengwyn"
     LOCAL_DIR="pengwyn"
-    mkdir -p ${LOCAL_DIR}/script
+    mkdir -p ${LOCAL_ROOT}/${LOCAL_DIR}/script
     sshpass -p ${PASSWORD} rsync -e ssh -az --delete-after b8800814@www.rsr-solutions.net:html/architech/${REMOTE_DIR}/script/ ${LOCAL_ROOT}/${LOCAL_DIR}/script
     [ $? -eq 0 ] || { exit_error; }
-    mkdir -p ${LOCAL_DIR}/sdk
+    mkdir -p ${LOCAL_ROOT}/${LOCAL_DIR}/sdk
     sshpass -p ${PASSWORD} rsync -e ssh -az --delete-after b8800814@www.rsr-solutions.net:html/architech/${REMOTE_DIR}/script/ ${LOCAL_ROOT}/${LOCAL_DIR}/sdk
     [ $? -eq 0 ] || { exit_error; }
-    mkdir -p ${LOCAL_DIR}/toolchain
+    mkdir -p ${LOCAL_ROOT}/${LOCAL_DIR}/toolchain
     sshpass -p ${PASSWORD} rsync -e ssh -az --delete-after b8800814@www.rsr-solutions.net:html/architech/${REMOTE_DIR}/script/ ${LOCAL_ROOT}/${LOCAL_DIR}/toolchain
     [ $? -eq 0 ] || { exit_error; }
 	echo "OK"
 }
+
+[ -d ${LOCAL_ROOT} ] || { echo "path errata: ${LOCAL_ROOT}"; exit_error; }
 
 echo "start, save in ${LOCAL_ROOT}"
 
