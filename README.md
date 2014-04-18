@@ -4,11 +4,11 @@ godaddy-sync
 Salva il repository di godaddy in locale.
 Lanciare il comando con la seguente sintassi:
 
-    ./godaddy-sync password_godaddy /path/to/save
+    ./godaddy-sync.sh password_godaddy /path/to/save
 
 Oppure lanciare direttamente:
 
-    ./godaddy-sync
+    ./godaddy-sync.sh
 
 e inserire i dati richiesti
 
