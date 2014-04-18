@@ -33,7 +33,7 @@ DIRECTORY SALVATE
     - sdk
     - toolchain
 
--zedboard
+- zedboard
     - script
     - sdk
     - toolchain
