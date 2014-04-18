@@ -43,6 +43,7 @@ function rsync_pengwy_godaddy()
     mkdir -p ${LOCAL_DIR}/toolchain
     sshpass -p ${PASSWORD} rsync -e ssh -az --delete-after b8800814@www.rsr-solutions.net:html/architech/${REMOTE_DIR}/script/ ${LOCAL_ROOT}/${LOCAL_DIR}/toolchain
     [ $? -eq 0 ] || { exit_error; }
+	echo "OK"
 }
 
 echo "start, save in ${LOCAL_ROOT}"
